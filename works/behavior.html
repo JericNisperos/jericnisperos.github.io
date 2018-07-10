@@ -25,7 +25,7 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
   textAlign(CENTER);
-  var points = font.textToPoints(names, width / 2 - 500, height / 2, 100, {
+  var points = font.textToPoints(names, width / 2 - 500, height / 2, 140, {
     sampleFactor: 0.25
   });
 
@@ -48,7 +48,6 @@ function draw() {
     v.show();
   }
 
-  keyPressed();
 
 
 
@@ -120,13 +119,11 @@ Vehicle.prototype.flee = function(target) {
   }
 }
 
-function keyPressed() {
-  if (key == 'M') {
-    points = font.textToPoints('You! YES YOU!', width / 2 - 500, height / 2, 192, {
-    sampleFactor: 0.25
-  });
-  }
-}
+// function keyPressed() {
+//   if (key == 'M') {
+
+//   }
+// }
 
 </script>
 <body>
