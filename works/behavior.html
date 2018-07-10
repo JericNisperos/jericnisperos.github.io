@@ -9,6 +9,7 @@
 
 var font;
 var vehicles = [];
+var names;
 
 function preload() {
   font = loadFont('AdobeArabic-Regular.otf');
@@ -17,13 +18,14 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(51);
+  names = 'Jeric Nisperos';
   // textFont(font);
   // textSize(192);
   // fill(255);
   // noStroke();
   // text('train', 100, 200);
   textAlign(CENTER);
-  var points = font.textToPoints('Jeric Nisperos', width / 2 - 500, height / 2, 192, {
+  var points = font.textToPoints(names, width / 2 - 500, height / 2, 192, {
     sampleFactor: 0.25
   });
 
@@ -113,6 +115,12 @@ Vehicle.prototype.flee = function(target) {
     return steer;
   } else {
     return createVector(0, 0);
+  }
+}
+
+function keyPressed() {
+  if (key == 'M') {
+    names = 'You! Yes you!';
   }
 }
 
