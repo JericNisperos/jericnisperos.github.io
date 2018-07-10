@@ -25,7 +25,9 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
   textAlign(CENTER);
-
+  var points = font.textToPoints(names, width / 2 - 500, height / 2, 140, {
+    sampleFactor: 0.25
+  });
 
   for (var i = 0; i < points.length; i++) {
     var pt = points[i];
@@ -39,19 +41,6 @@ function setup() {
 
 function draw() {
   background(51);
-
-  for(var i = 0; i < 1; i++) {
-      var points = font.textToPoints(names, width / 2 - 500, height / 2, 140, {
-    sampleFactor: 0.25
-  });
-  }
-
-
-
-
-
-
-
   for (var i = 0; i < vehicles.length; i++) {
     var v = vehicles[i];
     v.behaviors();
