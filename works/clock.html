@@ -1,0 +1,535 @@
+<head>
+  <title>Clockwork</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js" integrity="sha256-N5xhwGT/XZQU7bBSrROZt7kREuk8kSbYNzRThGzsPpQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.dom.js" class="css">
+<script src="https://cdn.rawgit.com/liabru/matter-js/d727e8601e689a3aeffd386d6ede3a16243563da/build/matter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.js"></script>
+<style>
+    body {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+</style>
+
+<script>
+var sc2;
+var rx;
+var ry;
+var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function setup() {
+  
+  createCanvas(windowWidth, windowHeight);
+  background(51);
+  noStroke(255);
+  fill(150);
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  sc2 = second();
+  let rx = random(windowWidth);
+  let ry = random(windowHeight);
+  
+  
+  
+}
+
+function draw() {
+  
+  background(51);
+
+  let hr = hour();
+  let mn = minute();
+  let sc1 = second();
+  var sc = millis();
+  let mon = month();
+  let dat = day();
+  let yea = year();
+  let mm = 'AM';
+  
+  
+  push();
+  translate(width / 1.09, height / 4.6);
+  fill(150);
+  noStroke();
+  translate(0, 120);
+  rotate(sc / 10);
+  ellipse(0, 0, 100);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  rotate(30);
+  triangle(0, 0, 60, -10, 60, 10);
+  fill(51);
+  ellipse(0, 0, 60);
+  fill(150);
+  rectMode(CENTER);
+  rect(0, 0, 10, 100);
+  rotate(90);
+  rect(0, 0, 10, 100);
+  pop();
+  
+  push();
+  translate(width / 1.09, height / 4.6);
+  fill(100);
+  rect(0, 0, 200, 250);
+  fill(255);
+  text('Gear Clock', -30, -95);
+  fill(51);
+  ellipse(60, -90, 50);
+  fill(100);
+  translate(60, -90);
+  rotate(sc / 5);
+  rectMode(CENTER);
+  rect(0, 0, 10, 50);
+  rotate(90);
+  rect(0, 0, 10, 50);
+  pop();
+  
+  
+  
+  
+  
+  
+  
+  push();
+  translate(width / 2, height / 2);
+  rotate(-90);
+  //strokeWeight(8);
+  //stroke(255, 100, 150);
+  //noFill();
+  let secondAngle = map(sc / 1000 + sc2 - 0.5, 0, 59, 0, 360);
+  //strokeWeight(1);
+  //stroke(0);
+  //strokeWeight(15);
+  //stroke(100, 255, 150);
+  let minuteAngle = map(mn, 0, 59, 0, 360);
+  //arc(0, 0, 210, 210, 0, minuteAngle);
+  //strokeWeight(25);
+  //stroke(100, 150, 255);
+  let hourAngle = map(hr, 0, 12, 0, 360);
+  noStroke();
+  
+  
+  
+  
+  
+  
+  
+ //Gear
+  push();
+  rotate(secondAngle);
+  beginShape();
+  fill(150);
+  ellipse(0, 0, 450);
+  fill(51);
+  triangle(227, -20, 150, 0, 227, 20);
+  //ellipse(240, 0, 100, 40);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  rotate(15);
+  triangle(227, -20, 150, 0, 227, 20);
+  fill(150);
+  ellipse(0, 0, 400);
+  fill(51);
+  ellipse(0, 0, 360);
+  endShape();
+  pop();
+  
+  //gear 2
+  push();
+  fill(150);
+  //stroke(255);
+  translate(-120, 350);
+  //translate(width / 9, height / 1.2);
+  rotate(secondAngle * 10);
+  beginShape();
+  strokeWeight(10);
+  ellipse(0, 0, 220);
+  fill(51);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  rotate(30);
+  triangle(120, -15, 0, 0, 120, 15);
+  fill(150);
+  ellipse(0, 0, 180);
+  fill(51);
+  ellipse(0, 0, 160);
+  endShape();
+  rotate(secondAngle * 5);
+  fill(100, 255, 150);
+  arc(0, 0, 155, 155, 0, 180);
+  fill(51);
+  ellipse(0, 0, 100);
+  fill(255, 100, 150);
+  rotate(-secondAngle * 30);
+  
+  arc(0, 0, 95, 95, 0, 120);
+  fill(51);
+  ellipse(0, 0, 65);
+  noStroke();
+  fill(150, 100, 255);
+  rotate(secondAngle * 40);
+  arc(0, 0, 60, 60, 0, 220);
+  pop();
+  var lines;
+  
+  //gear 3 vertex
+  push();
+  noStroke();
+  translate(240, 210);
+  //translate(width / 8.7, height / 2.35);
+  rotate(-secondAngle * 2);
+  fill(150);
+  ellipse(0, 0, 150);
+  beginShape(lines);
+  fill(150);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  rotate(30);
+  beginShape(lines);
+  vertex(15, 70);
+  vertex(10, 100);
+  vertex(-15, 100);
+  vertex(-20, 70);
+  endShape();
+  fill(51);
+  ellipse(0, 0, 120);
+  rotate(secondAngle * 15);
+  fill(150, 255, 100);
+  arc(0, 0, 110, 110, 0, 90);
+  arc(0, 0, 110, 110, 180, 270);
+  fill(51);
+  ellipse(0, 0, 100);
+  pop();
+  
+  //gear 4 vertex
+  push();
+  noStroke();
+  translate(157, 340);
+  //translate(width / 8.7, height / 2.35);
+  rotate(secondAngle * 4);
+  fill(150);
+  ellipse(0, 0, 80);
+  beginShape(lines);
+  fill(150);
+  vertex(15, 10);
+  vertex(10, 60);
+  vertex(-15, 60);
+  vertex(-20, 10);
+  endShape();
+  rotate(60);
+  beginShape(lines);
+  vertex(15, 10);
+  vertex(10, 60);
+  vertex(-15, 60);
+  vertex(-20, 10);
+  endShape();
+  rotate(60);
+  beginShape(lines);
+  vertex(15, 10);
+  vertex(10, 60);
+  vertex(-15, 60);
+  vertex(-20, 10);
+  endShape();
+  rotate(60);
+  beginShape(lines);
+  vertex(15, 10);
+  vertex(10, 60);
+  vertex(-15, 60);
+  vertex(-20, 10);
+  endShape();
+  rotate(60);
+  beginShape(lines);
+  vertex(15, 10);
+  vertex(10, 60);
+  vertex(-15, 60);
+  vertex(-20, 10);
+  endShape();
+  rotate(60);
+  beginShape(lines);
+  vertex(15, 10);
+  vertex(10, 60);
+  vertex(-15, 60);
+  vertex(-20, 10);
+  endShape();
+  fill(51);
+  ellipse(0, 0, 30);
+  rotate(-secondAngle * 20);
+  fill(150, 150, 255);
+  arc(0, 0, 25, 25, 0, 180);
+  pop();
+  //Colored Arcs
+  fill(100, 150, 255);
+  arc(0, 0, 350, 350, 0, secondAngle - 4);
+  fill(51);
+  arc(0, 0, 330, 330, 0, 360);
+  fill(255, 150, 100);
+  arc(0, 0, 320, 320, 0, minuteAngle);
+  fill(51);
+  arc(0, 0, 280, 280, 0, 360);
+  fill(100, 255, 150);
+  arc(0, 0, 270, 270, 0, hourAngle);
+  fill(51);
+  arc(0, 0, 200, 200, 0, 360);
+  fill(150);
+  ellipse(0, 0, 190);
+  fill(51);
+  ellipse(0, 0, 150);
+  pop();
+  
+  
+  //inside Gear
+  push();
+  translate(width / 2, height / 2);
+  rotate(secondAngle);
+  fill(51);
+  rect(0, 0, 10, 180);
+  rotate(30);
+  rect(0, 0, 10, 180);
+  rotate(30);
+  rect(0, 0, 10, 180);
+  rotate(30);
+  rect(0, 0, 10, 180);
+  rotate(30);
+  rect(0, 0, 10, 180);
+  rotate(30);
+  rect(0, 0, 10, 180);
+  pop();
+  
+  if(hr >= 12) {hr -= 12; mm = 'PM';}
+  if (sc1 <= 9) {sc1 = '0' + sc1;}
+  if (hr <= 9) {hr = '0' + hr;}
+  if (mn <= 9) {mn = '0' + mn;}
+  if (hr == 00) {hr = '12';}
+  
+  //if( mon = 10) {mon = 'Oct';}
+  switch (mon) {
+    case 1: mons = "JAN";
+              break;
+    case 2: mons = "FEB";
+      break;
+    case 3: mons = "MAR";
+      break;
+    case 4: mons = "APR";
+      break;
+    case 5: mons = "MAY";
+      break;
+    case 6: mons = "JUN";
+      break;
+    case 7: mons = "JUL";
+      break;
+    case 8: mons = "AUG";
+      break;
+    case 9: mons = "SEPT";
+      break;
+    case 10: mons = "OCT";
+    break;
+    case 11: mons = "NOV";
+    break;
+    case 22: mons = "DEC";
+    break;
+             }
+  //text codes
+  textAlign(CENTER);
+  textStyle(BOLD);
+  noStroke(2);
+  textSize(20);
+  fill(225, 225, 225);
+  //fill(150, 255, 100);
+  text(hr + ':' + mn + ':' + sc1, width / 2, height / 2 - 5);
+  text(mm, width / 2, height / 2 + 12);
+  push();
+  translate(210, -240);
+  text(mons + ', ' + dat, width / 2, height / 2);
+  text(yea, width / 2, height / 2 + 20);
+  
+  
+  pop();
+}
+
+  
+    
+</script>
+    
+</head>
+
+<body>
+</body>
+</html>

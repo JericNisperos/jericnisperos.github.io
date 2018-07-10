@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MOUSE</title>
+    <script src="lib/p5.js" type="text/javascript"></script>
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+<style> body{padding: 0;margin: 0;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center; cursor: none;} </style>
+    <script type="text/javascript">
+
+
+var cx, cy;
+var cr, cg, cb;
+var mcursor = 1;
+var clicker;
+function setup() {
+	cx = windowWidth;
+	cy = windowHeight
+createCanvas(cx, cy);
+	clicker = new smokered();
+}
+
+function draw() {
+ 	cx = windowWidth;
+	cy = windowHeight
+createCanvas(cx, cy);
+background(51);
+chooser();
+mouseCursor();
+
+ }
+
+
+ function chooser() {
+
+ 	push();
+ 	fill(200);
+ 	rect(10, 10, 80, height - 20);
+ 	pop();
+
+ 	push();
+ 	noStroke();
+ 	textStyle(BOLD);
+ 	textSize(10);
+ 	text("SMOKE RED", 15, 30);
+ 	pop();
+
+
+
+
+
+
+
+ 	if(mcursor == 1) {
+ 		smokered();
+ 	}
+ }
+
+ function mousePressed() {
+ 	if (mcursor == 1) {
+ 		clicker.click();
+ 		console.log("CLICKER");
+ 	}
+
+ }
+
+ function mouseCursor() {
+ 	push();
+ 	noStroke();
+ 	fill(cr, cg, cb);
+ 	translate(mouseX, mouseY);
+ 	angleMode(DEGREES);
+ 	rotate(-45);
+ 	beginShape();
+    vertex(0, 0);
+    vertex(-8, 15);
+    vertex(0, 10);
+    vertex(8, 15);
+    endShape();
+    pop();
+ }
+
+ function smokered() {
+ 	this.x = mouseX;
+ 	this.y = mouseY;
+ 	cr = 250;
+ 	cg = 0;
+ 	cb = 0;
+ 	push();
+
+ 	pop();
+
+ 	this.click = function() {
+ 		push();
+ 		stroke(255);
+ 		fill(255);
+ 		ellipse(this.x, this.y, 10);
+ 		console.log("PWDE");
+ 		pop();
+ 	}
+ }
+
+
+</script>
+
+  </head>
+  <body>
+  </body>
+</html>

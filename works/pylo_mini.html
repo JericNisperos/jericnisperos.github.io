@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script src="lib/p5.js" type="text/javascript"></script>
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+  <style> body{padding: 0;margin: 0;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;} </style>
+
+  <script type="text/javascript">
+  var n = 0;
+  var c = 4;
+  var z = false;
+  var mx;
+  var my;
+  var d = [];
+  var e ,f, g;
+
+function setup() {
+ createCanvas(windowWidth, windowHeight);
+ angleMode(DEGREES);
+ colorMode(HSB);
+ 
+ background(0);
+
+}
+
+function draw() {
+  if (z) {
+var a = n * 137.5;
+ var r = c * sqrt(n);
+ var x = r * cos(a) + mx;
+ var y = r * sin(a) + my;
+ fill (e, f, g);
+ ellipse(x, y, 4, 4);
+ if (n < 100) {
+  e = random(255);
+  f = random(255);
+  g = random(255);
+ n++;}
+}
+
+}
+
+function mousePressed() {
+  
+  z = true;
+  mx = mouseX;
+  my = mouseY;
+  n = 0;
+}
+</script>
+  </head>
+  <body>
+  </body>
+</html>

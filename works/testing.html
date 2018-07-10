@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <title>My Sketch</title>
+    <link rel="shortcut icon" href="img/logo.ico" />
+    <script src="lib/p5.js" type="text/javascript"></script>
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+
+
+
+
+<script>
+var n = 0;
+  var c = 3;
+  var z = false;
+  var mx;
+  var my;
+  var d = [];
+  var e ,f, g;
+  var h;
+  var ctx;
+  var cs;
+  var w = false;
+
+  var canvasx, canvasy;
+
+  var canvas;
+
+
+
+function setup() {
+  canvasx = windowWidth;
+  canvasy = windowHeight-100;
+  canvas = createCanvas(canvasx, canvasy);
+  canvas.style('display', 'block');
+  // Move the canvas so it’s inside our <div id="sketch-holder">.
+  canvas.parent('sketch-holder');
+
+  background(0);
+
+  slider1 = document.getElementById("myRange");
+
+ //ctx.parent('sketches');
+ angleMode(DEGREES);
+ colorMode(HSB);
+ h = random(135.5, 137.5);
+
+}
+
+function draw() {
+  if (z) {
+ var a = n * h;
+ var r = c * sqrt(n);
+ var x = r * cos(a) + mx;
+ var y = r * sin(a) + my;
+ fill (e, f, g);
+ ellipse(x, y, 5, 5);
+ if (n < 850) {
+
+ n++;}
+}
+
+  if (w) {
+  e = random(255);
+  f = random(255);
+  g = random(100, 255);
+  }
+
+}
+
+function mousePressed() {
+//normal 137.5;
+  h = 137.5;
+  z = true;
+  mx = mouseX;
+  my = mouseY;
+  n = 0;
+if (random(1) < 0.7) {
+
+  w = true;
+} else {
+  w = false;
+}
+}
+
+
+</script>
+
+
+
+
+
+
+<style>
+body{
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  } 
+
+.slider {
+    -webkit-appearance: none;
+    width: 15%;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-left: 10px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+
+</style>
+
+  </head>
+  <body>
+    <div id="sketch-holder">
+      <!-- Our sketch will go here! -->
+    </div>
+    <br>
+    <p>Range</p>
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  </body>
+</html>
