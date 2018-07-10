@@ -12,7 +12,7 @@ var vehicles = [];
 var names;
 
 function preload() {
-  font = loadFont('AdobeArabic-Regular.otf');
+  font = loadFont('impact.ttf');
 }
 
 function setup() {
@@ -120,7 +120,9 @@ Vehicle.prototype.flee = function(target) {
 
 function keyPressed() {
   if (key == 'M') {
-    names = 'You! Yes you!';
+    points = font.textToPoints('You! YES YOU!', width / 2 - 500, height / 2, 192, {
+    sampleFactor: 0.25
+  });
   }
 }
 
