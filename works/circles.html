@@ -36,7 +36,7 @@ var checkmobile;
 
 function setup() {
   checkmobile = windowWidth;
-  if (checkmobile <= 1000) {ballcount = 50;} else {ballcount = 100;}
+  if (checkmobile <= 1000) {ballcount = 50;} else {ballcount = 120;}
   canvasx = windowWidth;
   canvasy = windowHeight;
   createCanvas(canvasx, canvasy);
@@ -77,8 +77,8 @@ function mouseTouch() {
 
   for( var i=0; i<bilog.length; i++){
   var mdist = dist(mouseX, mouseY, bilog[i].x, bilog[i].y);
-  var mmdist=200-mdist;
-    if (mdist < 150){
+  var mmdist= 150-mdist;
+    if (mdist < 100){
     bilog[i].d = 200;
     bilog[i].colora = 200;
     push();
@@ -90,7 +90,7 @@ function mouseTouch() {
     line(mouseX, mouseY, bilog[i].x, bilog[i].y);
     pop();
 }
-  if (mdist > 150) {
+  if (mdist > 100) {
     bilog[i].d = 100;
     bilog[i].colora = 150;
   }
