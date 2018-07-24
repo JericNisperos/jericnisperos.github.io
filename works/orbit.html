@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spiderweb Simulator</title>
+    <link rel="icon" href="logo.ico">
+    <script src="lib/p5.js" type="text/javascript"></script>
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+
+  <style> body{padding: 0;margin: 0;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;} </style>
+
+<script type="text/javascript">
+
+
+
+var stars = [];
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  // trail.push(new Trails(mouseX, mouseY));
+//   for(var i = 0; i < 500; i++) {
+//   vehicles.push(new Vehicle(mx, my));
+// }
+      for(var i = 0; i < 10; i++) {
+    stars.push(new Star(0, random(50, 250), 0));
+  }
+}
+
+
+function draw() {
+  createCanvas(windowWidth, windowHeight);
+  background(51);
+
+    for (var i = 0; i < stars.length; i++) {
+      stars[i].update();
+      stars[i].show();
+      
+    push();
+    fill(255);
+    text(mouseX, 30, 30);
+    text(mouseY, 30, 60);
+    ellipse(width / 2, height / 2, 100);
+    pop();
+}
+
+
+}
+
+function Star(x, y, z) {
+  this.pos = createVector(x, y);
+  this.rot = z;
+  this.r = 10;
+  this.multspeed = 1;
+  this.d = dist(width / 2, height / 2, this.pos.x, this.pos.y);
+  this.update = function() {
+    this.rot++;
+    if (this.rot >= 360) {
+      this.rot = 0;
+    }
+    push();
+    
+    pop();
+  }
+
+  this.show = function() {
+    push();
+    angleMode(DEGREES);
+    fill(255);
+    translate(width / 2, height / 2);
+    rotate(this.rot);
+    ellipse(x, y, this.r);
+    pop();
+  }
+
+}
+
+
+function mousePressed() {
+  stars.push(new Star(mouseX - width / 2, mouseY - height / 2, 0));
+}
+</script>
+  </head>
+  <body>
+  </body>
+</html>

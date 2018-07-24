@@ -67,14 +67,15 @@ function setup() {
 
  //ctx.parent('sketches');
  angleMode(DEGREES);
- colorMode(HSB);
+ colorMode(RGB);
  h = 137.5;
- background(0);
+ background(51);
 
 }
 
 function draw() {
-  
+  colorMode(HSB);
+  noStroke();
   if (z) {
  var a = n * h;
  var r = c * sqrt(n);
@@ -102,7 +103,7 @@ function mousePressed() {
   mx = mouseX;
   my = mouseY;
   n = 0;
-if (random(1) < 0.7) {
+if (random(1) < 0.01) {
 
   w = true;
 } else {

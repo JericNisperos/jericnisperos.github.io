@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spiderweb Simulator</title>
+    <link rel="icon" href="logo.ico">
+    <script src="lib/p5.js" type="text/javascript"></script>
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+
+  <style> body{padding: 0;margin: 0;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;} </style>
+
+<script type="text/javascript">
+
+var pointer;
+var trailer = [];
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	pointer = new Star();
+	background(0);
+}
+
+function draw() {
+	
+
+	pointer.update();
+	pointer.show();
+
+	trailer.push(new Trail());
+
+	for (var i = 0; i < trailer.length; i++) {
+		trailer[i].update();
+		trailer[i].show();
+
+		if (trailer[i].lifespan <= 0) {
+			trailer.splice(i, 1);
+		}
+	}
+}
+
+function mouseDragged() {
+	
+
+}
+
+function Star() {
+
+
+
+
+
+	this.update = function(x,y) {
+		this.pos = createVector(x, y);
+
+		
+
+	}
+	this.show = function() {
+		fill(255);
+		ellipse(this.pos.x, this.pos.y, 20);
+
+
+
+	}
+}
+
+function Trail() {
+	this.pos = createVector(mouseX, mouseY);
+	this.lifespan = 12;
+	this.update = function() {
+		
+		this.lifespan--;
+	}
+
+	this.show = function() {
+		fill(this.lifespan*12);
+		for (var i = 0; i < trailer.length; i++) {
+			// for(var j = 0; j < trailer.length - 1; j++) {
+			var v1 = trailer[i].pos;
+			var v2 = trailer[i].pos;
+			ellipse(this.pos.x, this.pos.y, 5);
+			stroke(this.lifespan*12);
+			line(v1.x, v1.y, mouseX, mouseY);
+		// }
+	}
+	}
+
+
+}
+</script>
+  </head>
+  <body>
+  </body>
+</html>
