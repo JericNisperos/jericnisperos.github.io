@@ -37,6 +37,8 @@ function setup() {
     // strokeWeight(8);
     // point(pt.x, pt.y);
   }
+
+  println("1");
 }
 
 function draw() {
@@ -87,7 +89,7 @@ Vehicle.prototype.update = function() {
 }
 
 Vehicle.prototype.show = function() {
-  stroke(255);
+  stroke(this.c);
   strokeWeight(this.r);
   point(this.pos.x, this.pos.y);
 }
