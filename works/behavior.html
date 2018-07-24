@@ -58,6 +58,7 @@ function Vehicle(x, y) {
   this.target = createVector(x, y);
   this.vel = p5.Vector.random2D();
   this.acc = createVector();
+  this.c = 200;
   this.r = 4;
   this.maxspeed = 10;
   this.maxforce = 1;
@@ -97,6 +98,7 @@ Vehicle.prototype.arrive = function(target) {
   var d = desired.mag();
   var speed = this.maxspeed;
   if (d < 100) {
+    this.c = d;
     speed = map(d, 0, 100, 0, this.maxspeed);
   }
   desired.setMag(speed);
@@ -109,6 +111,7 @@ Vehicle.prototype.flee = function(target) {
   var desired = p5.Vector.sub(target, this.pos);
   var d = desired.mag();
   if (d < 50) {
+    this.c = d;
     desired.setMag(this.maxspeed);
     desired.mult(-1);
     var steer = p5.Vector.sub(desired, this.vel);
