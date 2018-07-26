@@ -43,7 +43,7 @@ function draw() {
 // }
 
   //var d = dist(food.pos.x, food.pos.y, )
-  worms.seek(food.pos);
+  worms.seek(createVector(width / 2, height / 2));
   worms.update();
   //worms.show();
   food.show();
@@ -64,7 +64,7 @@ function Worm() {
     this.velocity = createVector();
     this.x = random(width);
     this.y = sin(random(height))*75;
-    this.pos = createVector(this.x, this.y);
+    this.pos = createVector(width / 2, height / 2);
     this.r = 10;
     this.maxspeed = 5;
     this.maxforce = 0.1;
