@@ -11,7 +11,7 @@
 
 var x = [],
   y = [],
-  segNum = 20,
+  segNum = 3,
   segLength = 10;
 
 var worms;
@@ -49,8 +49,9 @@ function draw() {
   food.show();
 
   if(food.hit(worms)) {
-    x.push(0);
-    y.push(0);
+    
+    // x.push(0);
+    // y.push(0);
     food.pos = createVector(random(width), random(height));
   }
 
