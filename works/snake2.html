@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jenggo</title>
+    <script src="lib/p5.js" type="text/javascript"></script>
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+<style> body{padding: 0;margin: 0;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;} </style>
+    <script type="text/javascript">
+
+var mx = 1;
+var my = 1;
+var easing = 0.2;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  noStroke(); 
+  ellipseMode(RADIUS);
+  rectMode(CORNERS);
+}
+
+function draw() {
+  background(61);
+  var twirl = 0;
+  if (random(1) < 0.1) {
+    twirl = 10 + (random(-100, 100) - 10)* easing;
+  }
+  if (abs(mouseX - mx) > 0.1) {
+    mx = mx + (mouseX - mx) * easing;
+  }
+  if (abs(mouseY - my) > 0.1) {
+    my = my + (mouseY - my) * easing + twirl;
+  }
+  
+  // mx = constrain(mx, inner, width - inner);
+  // my = constrain(my, inner, height - inner);
+  // fill(237,34,93);
+  // rect(edge, edge, width-edge, height-edge);
+  fill(255);
+  ellipse(mx, my, 10);
+}
+
+</script>
+
+  </head>
+  <body>
+  </body>
+</html>

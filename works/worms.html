@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jenggo</title>
+    <script src="lib/p5.js" type="text/javascript"></script>
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+<style> body{padding: 0;margin: 0;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;} </style>
+
+
+<script type="text/javascript">
+
+var mp;
+var worms = [];
+var food = [];
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+    for (var i = 50 - 1; i >= 0; i--) {
+      worms.push(new Worm());
+    };
+    for (var i = 1 - 1; i >= 0; i--) {
+    food.push(new Food(mouseX, mouseY));
+    };
+  mp = createVector(random(width), random(height));
+
+}
+
+function draw() {
+  createCanvas(windowWidth, windowHeight);
+  background(51);
+
+  for (var i = 1 - 1; i >= 0; i--) {
+    food.push(new Food(mouseX, mouseY));
+    };
+  function MouseXXX() {
+    this.pos = createVector(mouseX, mouseY)
+  }
+  var mpx = new MouseXXX();
+  for (var i = worms.length - 1; i >= 0; i--) {
+    for (var j = 0; j < food.length; j++) {
+    worms[i].update();
+    worms[i].seek(food[j].pos);
+    worms[i].show();
+    // if (food[j].hit(mpx)) {
+    //   food.splice(j, 1);
+
+    if (food[j].life <= 0) {
+      food.splice(j, 1);
+    }
+
+    // }
+      if (food[j].hit(worms[i])) {
+        worms[i].life = 0;
+    // worms[i].life += 200;
+    // food.splice(j, 1);
+    // //food.push(new Food());
+    // console.log("test");
+  }
+    if (worms[i].life <= 0) {
+      worms.splice(i, 1);
+      worms.push(new Worm());
+    }
+  }}
+  for (var j = food.length - 1; j >= 0; j--) {
+    food[j].show();
+  }
+}
+
+function Worm() {
+    this.acceleration = createVector(0, 0);
+    this.velocity = createVector();
+    this.pos = createVector(random(width), random(height));
+    this.r = 10;
+    this.maxspeed = 1;
+    this.maxforce = 0.2;
+    this.angle = atan2(this.pos.x, this.pos.y);
+    this.life = random(100);
+
+  this.update = function() {
+    this.velocity.add(this.acceleration);
+    this.velocity.limit(this.maxspeed);
+    this.pos.add(this.velocity);
+    this.acceleration.mult(0);
+    this.posi = createVector(this.pos.x, this.pos.y);
+    this.angle = atan2(this.pos.x, this.pos.y);
+    this.px = this.pos.x + cos(this.angle);
+    this.py = this.pos.y + sin(this.angle);
+    this.life-= 0.1;
+
+
+    
+  }
+
+  this.applyForce = function(force) {
+    this.acceleration.add(force);
+  }
+  this.seek = function(target) {
+    var desired = p5.Vector.sub(target, this.pos);
+    var d = desired.mag();
+    var speed = this.maxspeed;
+  // if (d < 100) {
+  //   this.c = d;
+  //   speed = map(d, 0, 100, 0, this.maxspeed);
+  // }
+  desired.setMag(speed);
+    // desired.setMag(this.maxspeed);
+
+    var steer = p5.Vector.sub(desired, this.velocity);
+    steer.limit(this.maxforce);
+    this.applyForce(steer);
+
+
+
+
+
+    // var d = dist(target.x, target.y, this.pos.x, this.pos.y);
+    // if (d < 100) {
+      
+    //   if (this.maxspeed >= 2) {
+    //       this.maxspeed--;
+    //   } 
+
+
+    //   if (this.maxspeed <= 1) {
+    //     this.maxspeed = 10;
+    //   }
+    // }
+    
+  }
+
+  this.show = function() {
+    // var theta = this.velocity.heading() + PI / 2;
+    push();
+    // fill(127);
+    // stroke(200);
+    // strokeWeight(1);
+    // translate(this.pos.x, this.pos.y);
+    // ellipse(0, 0, 10);
+    var theta = this.velocity.heading() + PI / 2;
+    fill(this.life + 100, 100, 100);
+    noStroke();
+    translate(this.pos.x, this.pos.y);
+    rotate(theta);
+    beginShape();
+    vertex(0, 0);
+    vertex(-5, 10);
+    vertex(0, -15);
+    vertex(5, 10);
+    endShape(CLOSE);
+
+    pop();
+    var x = this.pos.x + cos(this.angle);
+    var y = this.pos.y + sin(this.angle);
+    this.angle = atan2(this.pos.x, this.pos.y);
+    // segment(this.px, this.py, this.angle);
+
+    // function segment(x, y, a) {
+    // push();
+    // translate(x, y);
+    // rotate(a);
+    // ellipse(0, 0, 10);
+    // pop();
+
+    // }
+
+  }
+
+}
+
+function Food(x, y) {
+  this.pos = createVector(x, y);
+  this.life = 10;
+
+  this.show = function() {
+      fill(255);
+      // ellipse(this.pos.x, this.pos.y, 10);
+      this.life--;
+}
+
+  this.hit = function(worms) {
+    var d = dist(this.pos.x, this.pos.y, worms.pos.x, worms.pos.y);
+    if (d < 10) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+}
+
+</script>
+
+  </head>
+  <body>
+  </body>
+</html>
