@@ -32,7 +32,7 @@ function homecolor() {
 }
 
 function workcolor() {
-    document.body.style.backgroundColor = "rgb(220, 220, 220)";
+    document.body.style.backgroundColor = "rgb(68,68,68)";
     //var dome = document.getElementById('bodystyle');
     // dome.style.backgroundImage = getCssValuePrefix() + 'linear-gradient('
     //     + "to top right" + ', ' + "black" + ', ' + "red" + ')';
@@ -45,7 +45,7 @@ function workcolor() {
 }
 
 function resumecolor() {
-    document.body.style.backgroundColor = "rgb(120,120,120)";
+    document.body.style.backgroundColor = "rgb(68,68,68)";
 }
 
 function sentjs() {
