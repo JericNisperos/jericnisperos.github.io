@@ -33,10 +33,10 @@ function homecolor() {
 
 function workcolor() {
     // document.body.style.backgroundColor = "rgb(220, 220, 220)";
-    var dome = document.getElementById('bodystyle');
+    //var dome = document.getElementById('bodystyle');
     // dome.style.backgroundImage = getCssValuePrefix() + 'linear-gradient('
     //     + "to top right" + ', ' + "black" + ', ' + "red" + ')';
-    dome.style.backgroundImage ='-moz-linear-gradient('
+    //dome.style.backgroundImage ='-moz-linear-gradient('
          + "to top right" + ', ' + "black" + ', ' + "red" + ')';
 
     // var dom = document.getElementById('bodystyle');
