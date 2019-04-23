@@ -37,7 +37,7 @@ function workcolor() {
     // dome.style.backgroundImage = getCssValuePrefix() + 'linear-gradient('
     //     + "to top right" + ', ' + "black" + ', ' + "red" + ')';
     //dome.style.backgroundImage ='-moz-linear-gradient('
-         + "to top right" + ', ' + "black" + ', ' + "red" + ')';
+         // + "to top right" + ', ' + "black" + ', ' + "red" + ')';
 
     // var dom = document.getElementById('bodystyle');
     // dom.style.backgroundImage = '-moz-linear-gradient('
