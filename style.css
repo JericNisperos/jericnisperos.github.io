@@ -4,11 +4,11 @@ body {background: linear-gradient(#999999 , black);}
 body {
 
 
-    /*background-color: #444444;*/
+    background-color: #444444;
     /*background: linear-gradient(-45deg, black, grey);*/
     /* background: linear-gradient(to top right, #006666 0%, #66ff99 100%);*/
-    background: linear-gradient(to top right, #333333 37%, #999999 84%);
-
+/*    background: linear-gradient(to top right, #333333 37%, #999999 84%);
+*/
     overflow-x: hidden;
 
 
