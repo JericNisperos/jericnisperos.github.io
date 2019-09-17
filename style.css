@@ -18,6 +18,34 @@ body {
 
 /*333333*/
 
+/*RESUME IDS*/
+
+#restable {
+    
+    width: 70%;
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#restr {
+      border: 30px solid #436FB0;
+    border-radius: 20px;
+    background-color: #436FB0;
+}
+#resname {
+    color: white;
+    font-weight: BOLD;
+    font-size: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#resmotto {
+    color: white;
+    font-weight: BOLD;
+    font-size: 15px;
+}
 
 
 

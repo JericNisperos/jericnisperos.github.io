@@ -44,6 +44,10 @@ function workcolor() {
     //     + "-45deg" + ', ' + "black" + ', ' + "green" + ')';
 }
 
+function artscolor() {
+    document.body.style.backgroundColor = "rgb(68,68,68)";
+}
+
 function resumecolor() {
     document.body.style.backgroundColor = "rgb(68,68,68)";
 }
@@ -190,11 +194,42 @@ $('.carousel-indicators li').each(function(){
 
 
 
-//JQUERY
+//Color Changing on Menu
 
 $(document).ready(function(){
     $("#homemenu").css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),
-    $("#homediv").show(),$("#worksdiv").hide(),$("#resumediv").hide(),$("#homemenu").click(function(){$(this).css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),$("#resumemenu, #worksmenu").css({color:"white","border-bottom":"0px"}),$("#homediv").show(100),$("#worksdiv").hide(100),$("#resumediv").hide(100)}),$("#resumemenu").click(function(){$(this).css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),$("#homemenu, #worksmenu").css({color:"white","border-bottom":"0px"}),$("#homediv").hide(100),$("#worksdiv").hide(100),$("#resumediv").show(100)}),$("#worksmenu").click(function(){$(this).css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),$("#homemenu, #resumemenu").css({color:"white","border-bottom":"0px"}),$("#homediv").hide(100),$("#worksdiv").show(100),$("#resumediv").hide(100)})});
+    $("#homediv").show(),
+        $("#worksdiv").hide(),
+        $("#artsdiv").hide(),
+        $("#resumediv").hide(),
+        $("#homemenu").click(function(){
+            $(this).css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),
+            $("#resumemenu, #worksmenu, #artsmenu").css({color:"white","border-bottom":"0px"}),
+            $("#homediv").show(300),
+            $("#worksdiv").hide(100),
+            $("#artsdiv").hide(100),
+            $("#resumediv").hide(100)}),
+        $("#resumemenu").click(function(){
+            $(this).css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),
+            $("#homemenu, #worksmenu, #artsmenu").css({color:"white","border-bottom":"0px"}),
+            $("#homediv").hide(100),
+            $("#worksdiv").hide(100),
+            $("#artsdiv").hide(100),
+            $("#resumediv").show(100)}),
+        $("#artsmenu").click(function(){
+            $(this).css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),
+            $("#homemenu, #worksmenu, #resumemenu").css({color:"white","border-bottom":"0px"}),
+            $("#homediv").hide(100),
+            $("#worksdiv").hide(100),
+            $("#artsdiv").show(100),
+            $("#resumediv").hide(100)}),
+        $("#worksmenu").click(function(){
+            $(this).css({color:"rgb(100, 100, 100)","border-bottom":"2px solid white"}),
+            $("#homemenu, #resumemenu, #artsmenu").css({color:"white","border-bottom":"0px"}),
+            $("#homediv").hide(100),
+            $("#artsdiv").hide(100),
+            $("#worksdiv").show(100),
+            $("#resumediv").hide(100)})});
 
 
 
