@@ -97,14 +97,14 @@ body {
 }
 
 .limenu a {
-    color: white;
+    color: rgb(0,255,255);
     font-weight: BOLD;
     font-size: 15px;
 }
 
 
 .limenu a:hover {
-    color: rgb(100, 100, 100);
+    color: white;
     text-decoration: none;
 }
 
